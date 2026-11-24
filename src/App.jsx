@@ -16,25 +16,26 @@ function App() {
   };
 
   const addTask = (taskData) => {
-    setTasks([...tasks, { ...taskData, done: false }]);
+    const newTask = {
+      ...taskData,
+      id: crypto.randomUUID(),
+      done: false
+    };
+    setTasks([...tasks, newTask]);
   };
 
-  const toggleTask = (index) => {
-    const newTasks = [...tasks];
-    newTasks[index].done = !newTasks[index].done;
-    setTasks(newTasks);
+  const toggleTask = (id) => {
+    setTasks(tasks.map(t => t.id === id ? { ...t, done: !t.done } : t));
   };
 
-  const removeTask = (index) => {
-    setTasks(tasks.filter((_, i) => i !== index));
+  const removeTask = (id) => {
+    setTasks(tasks.filter(t => t.id !== id));
   };
 
-  const editTask = (index, oldText) => {
+  const editTask = (id, oldText) => {
     const newText = prompt('Редактировать задачу:', oldText);
     if (newText === null || !newText.trim()) return;
-    const newTasks = [...tasks];
-    newTasks[index].text = newText.trim();
-    setTasks(newTasks);
+    setTasks(tasks.map(t => t.id === id ? { ...t, text: newText.trim() } : t));
   };
 
   const clearDone = () => {

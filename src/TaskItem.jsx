@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function TaskItem({ task, index, onToggle, onRemove, onEdit }) {
+export function TaskItem({ task, onToggle, onRemove, onEdit }) {
   const [isRemoving, setIsRemoving] = useState(false);
 
   const isOverdue = task.deadline && !task.done && new Date(task.deadline) < new Date().setHours(0,0,0,0);
@@ -12,13 +12,13 @@ export function TaskItem({ task, index, onToggle, onRemove, onEdit }) {
   const handleRemoveClick = () => {
     setIsRemoving(true);
     setTimeout(() => {
-      onRemove(index);
-    }, 250); // Ждем 250мс, пока проиграет анимация
+      onRemove(task.id); // Передаем ID
+    }, 250);
   };
 
   return (
     <li className={`priority-${task.priority} ${task.done ? 'done' : ''} ${isOverdue ? 'overdue' : ''} ${isRemoving ? 'removing' : ''}`}>
-      <span onClick={() => onToggle(index)} onDoubleClick={() => onEdit(index, task.text)}>
+      <span onClick={() => onToggle(task.id)} onDoubleClick={() => onEdit(task.id, task.text)}>
         {task.text}
       </span>
       

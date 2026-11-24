@@ -1,16 +1,26 @@
-# React + Vite
+# 📝 To-Do List App
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Полнофункциональный менеджер задач, разработанный на React. Проект создан с нуля: от чистой HTML/JS версии до современного React-приложения.
 
-Currently, two official plugins are available:
+🔗 **Живая демо-версия:** [https://todo-react-i61q9p3yv-roma874.vercel.app](https://todo-react-i61q9p3yv-roma874.vercel.app) *(может потребоваться VPN)*
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## ✨ Возможности
+- ➕ Добавление, редактирование и удаление задач
+- 🎯 Приоритеты (низкий, средний, высокий) с цветовой индикацией
+- 📅 Дедлайны с автоматической подсветкой просроченных задач
+- 🔍 Поиск по задачам в реальном времени
+- 🗂️ Фильтрация (все, активные, выполненные)
+- 🌙 Светлая и тёмная тема (сохраняется в браузере)
+- 💾 Сохранение данных в LocalStorage
+- 💅 Плавные анимации и адаптивный дизайн
 
-## React Compiler
+## 🛠️ Технологии
+- **React** (Hooks: useState, useEffect)
+- **Vite** (сборщик)
+- **CSS3** (переменные, анимации, Grid/Flexbox)
+- **LocalStorage** (для хранения данных)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🚀 Как запустить локально
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/roma874/todo-react.git

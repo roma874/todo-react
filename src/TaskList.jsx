@@ -7,11 +7,10 @@ export function TaskList({ tasks, onToggle, onRemove, onEdit }) {
 
   return (
     <ul>
-      {tasks.map((task, index) => (
+      {tasks.map((task) => (
         <TaskItem
-          key={index}
+          key={task.id}
           task={task}
-          index={index}
           onToggle={onToggle}
           onRemove={onRemove}
           onEdit={onEdit}
