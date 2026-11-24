@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Plus, Calendar } from 'lucide-react';
 
 export function AddForm({ onAdd }) {
   const [text, setText] = useState('');
@@ -22,18 +23,31 @@ export function AddForm({ onAdd }) {
         value={text}
         onChange={(e) => setText(e.target.value)}
       />
-      <select value={priority} onChange={(e) => setPriority(e.target.value)}>
+      
+      <select 
+        value={priority} 
+        onChange={(e) => setPriority(e.target.value)}
+        className={`priority-select ${priority}`}
+      >
         <option value="low">🟢 Низкий</option>
         <option value="medium">🟡 Средний</option>
         <option value="high">🔴 Высокий</option>
       </select>
-      <input
-        type="date"
-        value={deadline}
-        onChange={(e) => setDeadline(e.target.value)}
-        title="Дедлайн (необязательно)"
-      />
-      <button type="submit" className="add">Добавить</button>
+
+      <div className="date-wrapper">
+        <Calendar size={16} className="date-icon" />
+        <input
+          type="date"
+          value={deadline}
+          onChange={(e) => setDeadline(e.target.value)}
+          title="Дедлайн (необязательно)"
+        />
+      </div>
+
+      <button type="submit" className="add">
+        <Plus size={18} />
+        <span>Добавить</span>
+      </button>
     </form>
   );
 }

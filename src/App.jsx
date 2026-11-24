@@ -1,4 +1,6 @@
+
 import { useState, useEffect } from 'react';
+import { ListTodo, Trash2 } from 'lucide-react';
 import { useLocalStorage } from './useLocalStorage';
 import { AddForm } from './AddForm';
 import { Filters } from './Filters';
@@ -73,7 +75,10 @@ function App() {
   return (
     <div className="app">
       <ThemeToggle />
-      <h1>📝 Мои задачи</h1>
+      <h1>
+        <ListTodo size={24} style={{ verticalAlign: 'middle', marginRight: '8px' }} /> 
+        Мои задачи
+      </h1>
 
       <AddForm onAdd={addTask} />
       
@@ -92,7 +97,8 @@ function App() {
       />
 
       <button className="clear-done" onClick={clearDone} disabled={tasks.every(t => !t.done)}>
-        🗑 Очистить выполненные
+        <Trash2 size={16} style={{ verticalAlign: 'middle', marginRight: '6px' }} /> 
+        Очистить выполненные
       </button>
 
       <div className="footer">

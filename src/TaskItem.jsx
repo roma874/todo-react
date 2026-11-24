@@ -1,3 +1,4 @@
+import { Calendar, AlertTriangle, X } from 'lucide-react';
 import { useState } from 'react';
 
 export function TaskItem({ task, onToggle, onRemove, onEdit }) {
@@ -27,10 +28,11 @@ export function TaskItem({ task, onToggle, onRemove, onEdit }) {
       </span>
 
       {task.deadline && (
-        <span className={`deadline ${isOverdue ? 'overdue-text' : ''}`}>
-          {isOverdue ? '⚠️' : '📅'} {formatDeadline(task.deadline)}
-        </span>
-      )}
+  <span className={`deadline ${isOverdue ? 'overdue-text' : ''}`} style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+    {isOverdue ? <AlertTriangle size={14} /> : <Calendar size={14} />} 
+    {formatDeadline(task.deadline)}
+  </span>
+)}
 
       <button className="del" onClick={handleRemoveClick}>✕</button>
     </li>

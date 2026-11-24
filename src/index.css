@@ -242,3 +242,41 @@ li.removing {
   from { opacity: 1; transform: translateX(0); max-height: 60px; }
   to { opacity: 0; transform: translateX(40px); max-height: 0; padding-top: 0; padding-bottom: 0; }
 }
+/* Красивая кнопка добавления */
+button.add {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Обертка для поля с датой, чтобы вместить иконку */
+.date-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 140px;
+}
+
+.date-wrapper input[type="date"] {
+  width: 100%;
+  padding-left: 32px; /* Отступ для иконки */
+}
+
+.date-icon {
+  position: absolute;
+  left: 10px;
+  color: #888;
+  pointer-events: none; /* Чтобы клик проходил сквозь иконку в поле */
+}
+
+/* Цветные маркеры для селекта */
+.priority-select.low { color: #2e7d32; font-weight: 600; }
+.priority-select.medium { color: #b8860b; font-weight: 600; }
+.priority-select.high { color: #e25c5c; font-weight: 600; }
+
+/* Адаптация для темной темы */
+body.dark .date-icon { color: #777; }
+body.dark .priority-select.low { color: #81c784; }
+body.dark .priority-select.medium { color: #ffd54f; }
+body.dark .priority-select.high { color: #e57373; }
